@@ -1,0 +1,21 @@
+version: '3.6'
+
+services:
+  omcompanion:
+    build:
+      context: .
+    environment:
+      #- OM_COMPANION_RESUBMIT_URL=http://pingpong:3000/admission
+      - OM_COMPANION_API_HOSTNAME=http://origin:8081
+      - OM_COMPANION_API_PASSWORD=ome-access-token
+    volumes:
+    # needs to be a folder else fswatch is not working
+      - ./config:/app/config
+    # add ovenmedia network to communicate internal
+    networks:
+      - ovenmedia-network      
+
+networks:
+  ovenmedia-network:
+    driver: bridge
+

@@ -1,0 +1,7 @@
+record:
+  - app: "*"
+    stream: "mystream"
+  - app: "myapp"
+    stream: "streamname"
+  - app: "second_app"
+    stream: "*"
